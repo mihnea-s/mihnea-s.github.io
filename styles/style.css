@@ -1,0 +1,191 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@tailwind screens;
+
+:root {
+  --lang-en-display: unset;
+  --lang-ro-display: none;
+
+  --first-color: hsl(187, 61%, 85%);
+  --second-color: hsl(59, 100%, 76%);
+  --third-color: hsl(351, 70%, 38%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --first-color: hsl(187, 61%, 20%);
+    --second-color: hsl(59, 100%, 12%);
+    --third-color: hsl(351, 70%, 24%);
+  }
+}
+
+.color-first {
+  --site-color: var(--first-color);
+}
+
+.color-second {
+  --site-color: var(--second-color);
+}
+
+.color-third {
+  --site-color: var(--third-color);
+}
+
+@layer utilities {
+  .lang-ro {
+    display: var(--lang-ro-display);
+  }
+
+  .lang-en {
+    display: var(--lang-en-display);
+  }
+
+  .bg-site-color {
+    background: var(--site-color);
+  }
+
+  @variants responsive {
+    .snap-x {
+      scroll-snap-type: x mandatory;
+    }
+
+    .snap-y {
+      scroll-snap-type: y mandatory;
+    }
+
+    .snap-start {
+      scroll-snap-align: start;
+    }
+
+    .snap-center {
+      scroll-snap-align: center;
+    }
+
+    .snap-end {
+      scroll-snap-align: end;
+    }
+
+    .snap-stop {
+      scroll-snap-stop: always;
+    }
+
+    .snap-normal {
+      scroll-snap-stop: normal;
+    }
+  }
+}
+
+@layer components {
+  .title {
+    @apply text-4xl print:text-2xl font-bold;
+  }
+
+  .heading {
+    @apply text-2xl print:text-lg font-semibold;
+  }
+
+  .subheading {
+    @apply text-xl print:text-base font-medium print:font-semibold;
+  }
+
+  .paragraph {
+    @apply 
+      bg-white dark:bg-gray-800 
+        bg-opacity-80
+      text-gray-800 dark:text-gray-100 
+        max-w-prose pl-4 print:pl-0 py-2
+      border-gray-400 dark:border-gray-500 
+        border-l-2 print:border-none leading-7 print:leading-6;
+  }
+
+  .icon {
+    height: 1em;
+    @apply inline -mt-1 
+      brightness-0 dark:invert filter;
+  }
+
+  .link {
+    background-color: var(--site-color);
+
+    @apply 
+      mx-2 print:mx-0 my-1 px-2 py-1
+      rounded-md shadow-sm whitespace-nowrap;
+  }
+
+  .link:hover {
+    @apply brightness-125 filter;
+  }
+
+  .link[leading]::before {
+    content: attr(leading);
+    @apply mr-2;
+  }
+
+  .link::after {
+    content: '\1f855';
+    @apply opacity-50 ml-2;
+  }
+
+  @media print {
+    .link {
+      @apply bg-gray-50;
+    }
+ 
+    .link > *:not(:first-child) {
+      @apply hidden;
+    }
+
+    .link::after {
+      content: attr(href-print);
+      @apply inline opacity-100 ml-0 text-blue-900;
+    }
+  }
+
+  .button {
+    background-color: var(--site-color);
+    @apply 
+      px-6 py-2 rounded-md shadow-sm 
+      text-xl font-semibold transition-all;
+  }
+
+  .button:hover {
+    @apply -my-1;
+  }
+
+  .button:active {
+    background: none;
+
+    @apply
+      bg-black dark:bg-white
+      text-white dark:text-black;
+  }
+
+  .button-active {
+    @apply ring-1 ring-black dark:ring-white;
+  }
+
+  .chip {
+    @apply  
+      py-1 px-3 rounded-xl
+      bg-black dark:bg-white bg-opacity-5;
+  }
+
+  .chip[leading]::before {
+    content: attr(leading);
+    @apply mr-2;
+  }
+
+  .screen-section {
+    @apply
+      flex items-center justify-center snap-start 
+      min-h-screen print:min-h-full px-4 pt-4 lg:pl-96 print:pl-0;
+  }
+
+  .screen-subsection {
+    @apply flex flex-col gap-6 print:gap-2 mb-12 print:mb-2;
+  }
+}
