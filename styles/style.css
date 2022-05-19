@@ -185,6 +185,10 @@
       min-h-screen print:min-h-full px-4 pt-4 lg:pl-96 print:pl-0;
   }
 
+  .section-left {
+    @apply lg:pr-96 pl-4 print:px-0;
+  }
+
   .screen-subsection {
     @apply flex flex-col gap-6 print:gap-2 mb-12 print:mb-2;
   }

@@ -57,6 +57,7 @@ class Portfolio {
   private time: number = 0.0;
   private scroll: number = 0.0;
 
+  private fractalMesh!: THREE.Mesh;
   private planeShader!: THREE.ShaderMaterial;
   private fractalShader!: THREE.ShaderMaterial;
   private backgroundShader!: THREE.ShaderMaterial;
@@ -89,8 +90,16 @@ class Portfolio {
     this.backgroundShader.uniforms['u_time'].value = timestamp;
   }
 
+  /** 
+   * Update colors and position based on scroll position.
+   * @param newScroll Scroll value, between 0.0 and 1.0
+   */
   private updateScroll(newScroll: number) {
     this.scroll = newScroll;
+
+    // Update center mesh position
+    const xPos = 2 * Math.sin(newScroll * Math.PI);
+    this.fractalMesh.position.setX(xPos - 1.25);
 
     // Update uniforms
     const color = this.lerpThreeColor();
@@ -192,13 +201,13 @@ class Portfolio {
     const planeMesh = new THREE.Mesh(new THREE.PlaneGeometry(25, 20), this.planeShader);
     planeMesh.rotateX(-Math.PI / 2);
 
-    const fractalMesh = new THREE.Mesh(new THREE.SphereGeometry(1.0, 80, 60), this.fractalShader);
+    this.fractalMesh = new THREE.Mesh(new THREE.SphereGeometry(1.0, 80, 60), this.fractalShader);
     this.fractalShader.uniforms['u_center'].value = new THREE.Vector3(-1.25, 1.0, 0.0);
-    fractalMesh.translateX(-1.25);
-    fractalMesh.translateY(1.0);
-    fractalMesh.scale.setScalar(0.65);
+    this.fractalMesh.translateX(-1.25);
+    this.fractalMesh.translateY(1.0);
+    this.fractalMesh.scale.setScalar(0.65);
 
-    this.scene.add(planeMesh, fractalMesh);
+    this.scene.add(planeMesh, this.fractalMesh);
 
     const backgroundGroup = new THREE.Group();
 
