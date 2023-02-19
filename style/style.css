@@ -1,0 +1,186 @@
+@font-face {
+  font-family: 'Vollkorn';
+  src: local('Vollkorn'), url('/static/font-vollkorn.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  src: local('Vollkorn-Italic'), url('/static/font-vollkorn-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: local('Karla'), url('/static/font-karla.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-style: italic;
+  src: local('Karla-Italic'), url('/static/font-karla-italic.ttf') format('truetype');
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@tailwind screens;
+
+:root {
+  --lang-en-display: unset;
+  --lang-ro-display: none;
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .lang-ro {
+    display: var(--lang-ro-display);
+  }
+
+  .lang-en {
+    display: var(--lang-en-display);
+  }
+
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .snap-y {
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+
+  .snap-center {
+    scroll-snap-align: center;
+  }
+
+  .snap-end {
+    scroll-snap-align: end;
+  }
+
+  .snap-stop {
+    scroll-snap-stop: always;
+  }
+
+  .snap-normal {
+    scroll-snap-stop: normal;
+  }
+}
+
+@layer components {
+  .title {
+    @apply text-4xl print:text-2xl font-bold;
+    font-family: 'Vollkorn', 'Times New Roman', Times, serif;
+  }
+
+  .heading {
+    @apply text-2xl print:text-lg font-semibold;
+    font-family: 'Vollkorn', 'Times New Roman', Times, serif;
+  }
+
+  .subheading {
+    @apply text-xl print:text-base font-medium print:font-semibold;
+    font-family: 'Vollkorn', 'Times New Roman', Times, serif;
+  }
+
+  p {
+    @apply max-w-prose pl-4 print:pl-0 py-2 leading-7 print:leading-6;
+  }
+
+  em {
+    font-style: normal;
+    font-variant: small-caps;
+  }
+
+  .icon {
+    height: 1em;
+    @apply inline -mt-1 brightness-0 filter;
+  }
+
+  .link {
+    background-color: var(--site-color);
+
+    @apply mx-2 print:mx-0 my-1 px-2 py-1 rounded-md shadow-sm whitespace-nowrap;
+  }
+
+  .link:hover {
+    @apply brightness-125 filter;
+  }
+
+  .link[leading]::before {
+    content: attr(leading);
+    @apply mr-2;
+  }
+
+  .link::after {
+    content: '\1f855';
+    @apply opacity-50 ml-2;
+  }
+
+  @media print {
+    .link {
+      @apply bg-gray-50;
+    }
+
+    .link>*:not(:first-child) {
+      @apply hidden;
+    }
+
+    .link::after {
+      content: attr(href-print);
+      @apply inline opacity-100 ml-0 text-blue-900;
+    }
+  }
+
+  .button {
+    background-color: white;
+    @apply px-6 py-2 rounded-md shadow-sm text-xl font-semibold transition-all;
+  }
+
+  .button:hover {
+    @apply -my-1;
+  }
+
+  .button:active {
+    background: none;
+    @apply bg-black text-white;
+  }
+
+  .button-active {
+    @apply ring-1 ring-black;
+  }
+
+  .chip {
+    @apply py-1 px-3 rounded-xl bg-black bg-opacity-5;
+  }
+
+  .chip[leading]::before {
+    content: attr(leading);
+    @apply mr-2;
+  }
+
+  .screen-section {
+    @apply flex items-center justify-center snap-start min-h-screen print:min-h-full px-4 pt-4 lg:pl-96 print:pl-0;
+  }
+
+  .screen-section:nth-child(odd) {
+    @apply text-white text-gray-100;
+  }
+
+  .screen-section:nth-child(even) {
+    @apply text-black text-gray-800;
+  }
+
+  .section-left {
+    @apply lg:pr-96 pl-4 print:px-0;
+  }
+
+  .screen-subsection {
+    @apply flex flex-col gap-6 print:gap-2 mb-12 print:mb-2;
+  }
+}

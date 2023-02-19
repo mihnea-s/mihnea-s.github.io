@@ -4,11 +4,23 @@
 <head>
   <title>Stoian Mihnea</title>
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/static/site.webmanifest" />
+  <link rel="stylesheet" href="/style/style.css">
+
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/static/favicon.png" type="image/png" />
+
+  <link rel="prefetch" href="/static/model-rook.fbx" />
+  <link rel="prefetch" href="/static/model-lambda.fbx" />
+  <link rel="prefetch" href="/static/model-gameboy.fbx" />
+  <link rel="prefetch" href="/static/model-backdrop.fbx" />
+  <link rel="prefetch" href="/static/model-university.fbx" />
+
+  <script src="/script/main.ts" type="module" async></script>
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 dark:text-white print:bg-transparent">
@@ -20,7 +32,7 @@
     snap-normal md:snap-stop overflow-y-scroll print:overflow-auto z-10">
 
     <!-- About Section -->
-    <section class="screen-section color-first">
+    <section class="screen-section">
       <div class="screen-subsection">
         <div class="flex gap-4 print:hidden">
           <button id="lang-en-button" class="button button-active">
@@ -32,9 +44,7 @@
           </button>
 
           <button class="button" onclick="print()">
-            &#x1F4C4;
-            <span class="lang-en">PDF Version</span>
-            <span class="lang-ro">Versiunea PDF</span>
+            &#x1F4C4; PDF
           </button>
         </div>
 
@@ -47,9 +57,9 @@
         <div class="flex flex-col gap-6 print:gap-2 print:flex-col-reverse">
           <p class="paragraph">
             <span class="lang-en">
-              Hi! I am a computer science student from Braşov, Romania. I love all aspects of computer science, but the
-              ones that interest me the most are close to hardware, low-level bit-fiddling. But I also don't shy away
-              from high level, more user oriented topics such as frontend design.
+              Hi! I am a computer science student from <em>Braşov, Romania</em>. I love all aspects of computer science,
+              but the ones that interest me the most are close to hardware, low-level bit-fiddling. But I also don't shy
+              away from high level, more user oriented topics such as frontend design.
             </span>
 
             <span class="lang-ro">
@@ -80,20 +90,20 @@
 
             <a class="link hidden print:inline" target="_blank" rel="noopener noreferrer"
               href="https://mihnea-s.github.io" href-print="mihnea-s.github.io">
-              <img src="/icon-globe.svg" class="icon mr-1" />
+              <img src="/static/icon-globe.svg" class="icon mr-1" />
               <span class="print:hidden">Porfolio</span>
             </a><br class="hidden print:block" />
 
             <a class="link" target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s"
               href-print="github.com/mihnea-s">
-              <img src="/icon-github.svg" alt="GitHub" class="icon mr-1" />
+              <img src="/static/icon-github.svg" alt="GitHub" class="icon mr-1" />
               <span class="print:hidden">GitHub</span>
             </a><span class="print:hidden">,</span><br class="hidden print:block">
 
             <a class="link" target="_blank" rel="noopener noreferrer"
               href="https://linkedin.com/in/mihnea-stoian-82382822b/"
               href-print="linkedin.com/in/mihnea-stoian-82382822b/">
-              <img src="/icon-linkedin.svg" alt="LinkedIn" class="icon mr-1" />
+              <img src="/static/icon-linkedin.svg" alt="LinkedIn" class="icon mr-1" />
               <span class="print:hidden">LinkedIn</span>
             </a><br class="hidden print:block" />
 
@@ -103,7 +113,7 @@
             <!-- Encode mail HREF to prevent spam from crawling bots, simple enough and it works. -->
             <a class="link href-rot13" target="_blank" rel="noopener noreferrer" href="znvygb:zvua.fga@tznvy.pbz"
               href-print="zvua.fga@tznvy.pbz">
-              <img src="/icon-mail.svg" alt="Mail" class="icon mr-1" />
+              <img src="/static/icon-mail.svg" alt="Mail" class="icon mr-1" />
               <span class="print:hidden">
                 mih<span class="hidden">abcd</span>n.s<span class="hidden">efgh</span>tn@gmail.com
               </span>
@@ -117,7 +127,7 @@
 
               <a class="link" href="http://github.com/mihnea-s/mihnea-s.github.io" target="_blank"
                 rel="noopener noreferrer">
-                <img src="/icon-github.svg" alt="GitHub" class="icon mr-1" />
+                <img src="/static/icon-github.svg" alt="GitHub" class="icon mr-1" />
                 <span class="lang-en">source code of this site</span>
                 <span class="lang-ro">codul sursă al site-ului</span>
               </a>!
@@ -128,7 +138,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="screen-section section-left color-second">
+    <section class="screen-section">
       <div class="screen-subsection">
         <h2 class="heading">
           <span class="lang-en">Skills</span>
@@ -139,7 +149,7 @@
 
         <div class="flex flex-col gap-6 print:gap-2">
           <h3 class="subheading">
-            <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
             C & C++
             <span class="italic opacity-70 lang-en">- 4 years experience</span>
             <span class="italic opacity-70 lang-ro">- 4 ani de experienţă</span>
@@ -161,7 +171,7 @@
 
         <div class="flex flex-col gap-6 print:gap-2">
           <h3 class="subheading">
-            <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
             JavaScript & TypeScript
             <span class="italic opacity-70 lang-en">- 3 years experience</span>
             <span class="italic opacity-70 lang-ro">- 3 ani de experienţă</span>
@@ -184,7 +194,7 @@
 
         <div class="flex flex-col gap-6 print:gap-2">
           <h3 class="subheading">
-            <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
             React.JS
             <span class="italic opacity-70 lang-en">- 2 years experience</span>
             <span class="italic opacity-70 lang-ro">- 2 ani de experienţă</span>
@@ -206,7 +216,7 @@
 
         <div class="flex flex-col gap-6 print:gap-2">
           <h3 class="subheading">
-            <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
             OpenGL
             <span class="italic opacity-70 lang-en">- 1 years experience</span>
             <span class="italic opacity-70 lang-ro">- 1 ani de experienţă</span>
@@ -230,7 +240,7 @@
     </section>
 
     <!-- Education Seciton (PDF only) -->
-    <section class="screen-section hidden print:flex">
+    <section class="screen-section section-left print:flex">
       <div class="screen-subsection">
         <h2 class="heading">
           <span class="lang-en">Education</span>
@@ -240,14 +250,25 @@
         <hr class="hidden mb-3 print:block" />
 
         <p class="paragraph lang-en">
-          I am currently pursuing a <b>Bachelor of Computer Science</b> at the
-          <b>University of Eindhoven</b> in the &#x1F1F3;&#x1F1F1; Netherlands.
+          I am currently pursuing my degree in <em>Computer Science</em> at the <em>University of Eindhoven</em> in the
+          &#x1F1F3;&#x1F1F1; Netherlands. This university is known for its excellent academic standards and cutting-edge
+          research facilities in the field of Computer Science. I am thoroughly enjoying my studies and am eager to
+          learn as much as possible in order to further my understanding and knowledge in this exciting and rapidly
+          evolving field.
+        </p>
+
+        <p class="lang-ro">
+          În prezent, urmez un program de studii în <em>Informatică</em> la <em>Universitatea din Eindhoven</em>,
+          &#x1F1F3;&#x1F1F1; Olanda. Această universitate este cunoscută pentru standardele academice excelente și
+          facilitățile de cercetare avansate în domeniul Informaticii. Mă bucur foarte mult de studiile mele și abia
+          aștept să învăț cât mai mult, pentru a-mi îmbunătăți înțelegerea și cunoștințele în acest domeniu emoționant
+          și în continuă evoluție.
         </p>
       </div>
     </section>
 
     <!-- Personal Projects Section -->
-    <section class="screen-section color-third" style="page-break-after: always;">
+    <section class="screen-section section-left" style="page-break-after: always;">
       <div class="screen-subsection">
         <h2 class="heading">
           <span class="lang-en">Personal Projects</span>
@@ -264,7 +285,7 @@
 
             <a class="link print:hidden" href="https://github.com/mihnea-s/silk-script" target="_blank"
               rel="noopener noreferrer">
-              <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
               <span class="lang-en">Source Code</span>
               <span class="lang-ro">Codul Sursă</span>
             </a>
@@ -308,7 +329,7 @@
 
             <a class="link print:hidden" href="https://github.com/mihnea-s/zig_gb_emu" target="_blank"
               rel="noopener noreferrer">
-              <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
               <span class="lang-en">Source Code</span>
               <span class="lang-ro">Codul Sursă</span>
             </a>
@@ -352,7 +373,7 @@
 
             <a class="link print:hidden" href="https://github.com/mihnea-s/polyeme" target="_blank"
               rel="noopener noreferrer">
-              <img src="/icon-code.svg" alt="Source Code" class="icon mx-1" />
+              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
               <span class="lang-en">Source Code</span>
               <span class="lang-ro">Codul Sursă</span>
             </a>
