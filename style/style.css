@@ -29,9 +29,21 @@
 @tailwind screens;
 
 :root {
+  --page-margin: 1.6cm;
   --lang-en-display: unset;
   --lang-ro-display: none;
   font-family: 'Karla', Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  :root {
+    margin-top: var(--page-margin);
+  }
 }
 
 @layer utilities {
@@ -73,17 +85,17 @@
 }
 
 @layer components {
-  .title {
+  h1 {
     @apply text-4xl print:text-2xl font-bold;
     font-family: 'Vollkorn', 'Times New Roman', Times, serif;
   }
 
-  .heading {
+  h2 {
     @apply text-2xl print:text-lg font-semibold;
     font-family: 'Vollkorn', 'Times New Roman', Times, serif;
   }
 
-  .subheading {
+  h3 {
     @apply text-xl print:text-base font-medium print:font-semibold;
     font-family: 'Vollkorn', 'Times New Roman', Times, serif;
   }
@@ -97,90 +109,101 @@
     font-variant: small-caps;
   }
 
-  .icon {
+  svg {
+    width: 1em;
     height: 1em;
-    @apply inline -mt-1 brightness-0 filter;
+    margin-bottom: -0.125em;
+    display: inline-block;
+    vertical-align: baseline;
   }
 
-  .link {
-    background-color: var(--site-color);
-
-    @apply mx-2 print:mx-0 my-1 px-2 py-1 rounded-md shadow-sm whitespace-nowrap;
+  a {
+    @apply whitespace-nowrap;
   }
 
-  .link:hover {
+  a:hover {
     @apply brightness-125 filter;
   }
 
-  .link[leading]::before {
-    content: attr(leading);
-    @apply mr-2;
+  a > svg {
+    @apply mx-0.5;
   }
 
-  .link::after {
+  a::after {
     content: '\1f855';
-    @apply opacity-50 ml-2;
+    @apply opacity-50 mx-0.5 transition-opacity;
+  }
+
+  a:hover::after {
+    @apply opacity-100;
   }
 
   @media print {
-    .link {
-      @apply bg-gray-50;
+    a {
+      @apply underline;
     }
 
-    .link>*:not(:first-child) {
+    a::after {
       @apply hidden;
     }
+  }
 
-    .link::after {
-      content: attr(href-print);
-      @apply inline opacity-100 ml-0 text-blue-900;
+  button {
+    @apply
+      px-5 py-2 
+      border-b-2 border-white
+      font-semibold transition-all;
+  }
+
+  button:hover {
+    @apply text-black bg-white;
+  }
+
+  button:active {
+    @apply text-gray-900 bg-gray-300 border-gray-300;
+  }
+
+  button[active] {
+    @apply text-black bg-white;
+  }
+
+  section {
+    @apply
+      px-4 pt-4 print:px-0
+      flex items-center justify-center
+      snap-start min-h-screen print:min-h-full;
+  }
+
+  section:nth-child(odd) {
+    @apply print:text-black text-gray-100;
+  }
+
+  section:nth-child(even) {
+    @apply print:text-black text-gray-800;
+  }
+
+  section:nth-child(-n + 2) {
+    @apply lg:pl-96;
+  }
+
+  section:nth-last-child(-n + 2) {
+    @apply lg:pr-96;
+  }
+
+  @media print {
+    section[new-page] {
+      padding-top: var(--page-margin);
+      @apply break-before-page;
     }
-  }
-
-  .button {
-    background-color: white;
-    @apply px-6 py-2 rounded-md shadow-sm text-xl font-semibold transition-all;
-  }
-
-  .button:hover {
-    @apply -my-1;
-  }
-
-  .button:active {
-    background: none;
-    @apply bg-black text-white;
-  }
-
-  .button-active {
-    @apply ring-1 ring-black;
-  }
-
-  .chip {
-    @apply py-1 px-3 rounded-xl bg-black bg-opacity-5;
-  }
-
-  .chip[leading]::before {
-    content: attr(leading);
-    @apply mr-2;
-  }
-
-  .screen-section {
-    @apply flex items-center justify-center snap-start min-h-screen print:min-h-full px-4 pt-4 lg:pl-96 print:pl-0;
-  }
-
-  .screen-section:nth-child(odd) {
-    @apply text-white text-gray-100;
-  }
-
-  .screen-section:nth-child(even) {
-    @apply text-black text-gray-800;
-  }
-
-  .section-left {
-    @apply lg:pr-96 pl-4 print:px-0;
   }
 
   .screen-subsection {
     @apply flex flex-col gap-6 print:gap-2 mb-12 print:mb-2;
+  }
+
+  .injected-svg {
+    height: 1em;
+    width: 1em;
+    @apply bg-white rounded-full m-0.5;
   }
 }

@@ -23,39 +23,38 @@
   <script src="/script/main.ts" type="module" async></script>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 dark:text-white print:bg-transparent">
-  <div id="3d-bg" class="w-full h-full fixed top-0 print:hidden
-    pointer-events-none opacity-25 lg:opacity-100 -z-10">
+<body>
+  <div id="3d-bg" class="w-full h-full fixed top-0 print:hidden pointer-events-none -z-10">
   </div>
 
   <main id="main" class="max-h-screen print:max-h-full md:snap-y
     snap-normal md:snap-stop overflow-y-scroll print:overflow-auto z-10">
 
     <!-- About Section -->
-    <section class="screen-section">
+    <section>
       <div class="screen-subsection">
-        <div class="flex gap-4 print:hidden">
-          <button id="lang-en-button" class="button button-active">
+        <div class="flex gap-4 mb-6 print:hidden">
+          <button id="lang-en-button" active>
             &#x1F1EC;&#x1F1E7; EN
           </button>
 
-          <button id="lang-ro-button" class="button">
+          <button id="lang-ro-button">
             &#x1F1F7;&#x1F1F4; RO
           </button>
 
-          <button class="button" onclick="print()">
+          <button onclick="print()">
             &#x1F4C4; PDF
           </button>
         </div>
 
-        <h1 class="title">
+        <h1>
           Stoian Mihnea
         </h1>
 
         <hr class="hidden print:block" />
 
         <div class="flex flex-col gap-6 print:gap-2 print:flex-col-reverse">
-          <p class="paragraph">
+          <p>
             <span class="lang-en">
               Hi! I am a computer science student from <em>Braşov, Romania</em>. I love all aspects of computer science,
               but the ones that interest me the most are close to hardware, low-level bit-fiddling. But I also don't shy
@@ -80,67 +79,56 @@
             </span>
           </p>
 
-          <h2 class="heading print:hidden">
+          <h2 class="print:hidden">
             Contact
           </h2>
 
-          <p class="paragraph leading-8 print:leading-7">
+          <p>
             <span class="print:hidden lang-en">You can contact me on</span>
             <span class="print:hidden lang-ro">Puteţi să mă contactaţi folosind</span>
 
-            <a class="link hidden print:inline" target="_blank" rel="noopener noreferrer"
-              href="https://mihnea-s.github.io" href-print="mihnea-s.github.io">
-              <img src="/static/icon-globe.svg" class="icon mr-1" />
-              <span class="print:hidden">Porfolio</span>
-            </a><br class="hidden print:block" />
+            <a class="hidden print:inline" target="_blank" rel="noopener noreferrer" href="https://mihnea-s.github.io">
+              <span class="injected-svg" src="/static/icon-globe.svg"></span>
+              <span>mihnea-s.github.io</span>
+            </a>
 
-            <a class="link" target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s"
-              href-print="github.com/mihnea-s">
-              <img src="/static/icon-github.svg" alt="GitHub" class="icon mr-1" />
+            <br class="hidden print:block" />
+
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s">
+              <span class="injected-svg" src="/static/icon-github.svg"></span>
               <span class="print:hidden">GitHub</span>
-            </a><span class="print:hidden">,</span><br class="hidden print:block">
+              <span class="hidden print:inline">github.com/mihnea-s</span>
+            </a>
+            <span class="print:hidden">,</span>
 
-            <a class="link" target="_blank" rel="noopener noreferrer"
-              href="https://linkedin.com/in/mihnea-stoian-82382822b/"
-              href-print="linkedin.com/in/mihnea-stoian-82382822b/">
-              <img src="/static/icon-linkedin.svg" alt="LinkedIn" class="icon mr-1" />
+            <br class="hidden print:block">
+
+            <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/mihnea-stoian-82382822b/">
+              <span class="injected-svg" src="/static/icon-linkedin.svg"></span>
               <span class="print:hidden">LinkedIn</span>
+              <span class="hidden print:inline">linkedin.com/in/mihnea-stoian-82382822b/</span>
             </a><br class="hidden print:block" />
 
             <span class="print:hidden lang-en">or via email at</span>
             <span class="print:hidden lang-ro">sau prin email, la adresa</span>
 
             <!-- Encode mail HREF to prevent spam from crawling bots, simple enough and it works. -->
-            <a class="link href-rot13" target="_blank" rel="noopener noreferrer" href="znvygb:zvua.fga@tznvy.pbz"
-              href-print="zvua.fga@tznvy.pbz">
-              <img src="/static/icon-mail.svg" alt="Mail" class="icon mr-1" />
-              <span class="print:hidden">
+            <a class="link href-rot13" target="_blank" rel="noopener noreferrer" href="znvygb:zvua.fga@tznvy.pbz">
+              <span class="injected-svg" src="/static/icon-mail.svg"></span>
+              <span>
                 mih<span class="hidden">abcd</span>n.s<span class="hidden">efgh</span>tn@gmail.com
               </span>
-            </a><span class="print:hidden">.</span>
-
-            <span class="print:hidden">
-              <br /><br />
-
-              <span class="lang-en">Also check out the</span>
-              <span class="lang-ro">Aruncaţi o privire peste</span>
-
-              <a class="link" href="http://github.com/mihnea-s/mihnea-s.github.io" target="_blank"
-                rel="noopener noreferrer">
-                <img src="/static/icon-github.svg" alt="GitHub" class="icon mr-1" />
-                <span class="lang-en">source code of this site</span>
-                <span class="lang-ro">codul sursă al site-ului</span>
-              </a>!
-            </span>
+            </a>
+            <span class="print:hidden">.</span>
           </p>
         </div>
       </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="screen-section">
+    <section>
       <div class="screen-subsection">
-        <h2 class="heading">
+        <h2>
           <span class="lang-en">Skills</span>
           <span class="lang-ro">Aptitudini</span>
         </h2>
@@ -148,108 +136,120 @@
         <hr class="hidden mb-3 print:block" />
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
-            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-            C & C++
-            <span class="italic opacity-70 lang-en">- 4 years experience</span>
-            <span class="italic opacity-70 lang-ro">- 4 ani de experienţă</span>
+          <h3>
+            C/C++ & OpenGL
+
+            <span class="text-gray-400">
+              &mdash;
+              <span class="lang-en">4 years of experience</span>
+              <span class="lang-ro">4 ani de experienţă</span>
+            </span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:mt-0">
+          <p class="print:ml-3 print:mt-0">
             <span class="lang-en">
-              C++ was my first programming language, followed soon after by C. They are the languages I have the most
-              experience and written code in and I believe they compliment each other really well, especially when
-              working at a low-level.
+              I have had 4 years of experience with C and C++. Throughout that time, I have become well versed in modern
+              C++ standards, including C++17 and C++20, and have been keeping up with the evolution of the C++ standard.
             </span>
 
             <span class="lang-ro">
-              C++ a fost limbajul cu care am început să învăţ programare, urmat de C. Acestea sunt limbile în care am
-              cea mai multă experienţă şi la care mă pricep cel mai bine.
+              Am 4 ani de experiență cu C și C++. Pe parcursul acestui timp, am devenit bine versat în standardele
+              moderne C++, inclusiv C++17 și C++20, și am ținut pasul cu evoluția standardului C++.
             </span>
           </p>
         </div>
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
-            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-            JavaScript & TypeScript
-            <span class="italic opacity-70 lang-en">- 3 years experience</span>
-            <span class="italic opacity-70 lang-ro">- 3 ani de experienţă</span>
+          <h3>
+            JavaScript, TypeScript & React.JS
+
+            <span class="text-gray-400">
+              &mdash;
+              <span class="lang-en">3 years of experience</span>
+              <span class="lang-ro">3 ani de experienţă</span>
+            </span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:mt-0">
+          <p class="print:ml-3 print:mt-0">
             <span class="lang-en">
-              I have a lot of experience in writing JavaScript and its statically-typed counterpart, TypeScript. I am
-              aware about the intricacies and pitfalls of the language such as the event loop, the <code>this</code>
-              keyword, prototypal inheritance etc.
+              As an experienced JavaScript developer with three years of practical experience, I have in-depth knowledge
+              of TypeScript, React.JS, Node, and the broader JavaScript ecosystem, alongside modern web development
+              practices.
             </span>
 
             <span class="lang-ro">
-              Am multă experienţă în a scrie cod JavaScript şi supersetul cu sistem de tipuri, TypeScript. Sunt
-              conştient de subtilităţile şi neajunsurile limbajului precum: event loop-ul, cuvantul cheie
-              <code>this</code>, cât şi despre moştenirea prototipală.
+              În calitate de dezvoltator JavaScript cu experiență de trei ani în experiență practică, am cunoștințe
+              aprofundate în TypeScript, React.JS, Node și ecosistemul JavaScript mai larg, alături de practicile
+              moderne de dezvoltare web.
             </span>
           </p>
         </div>
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
-            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-            React.JS
-            <span class="italic opacity-70 lang-en">- 2 years experience</span>
-            <span class="italic opacity-70 lang-ro">- 2 ani de experienţă</span>
+          <h3>
+            Golang
+
+            <span class="text-gray-400">
+              &mdash;
+              <span class="lang-en">2 years of experience</span>
+              <span class="lang-ro">2 ani de experienţă</span>
+            </span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:mt-0">
+          <p class="print:ml-3 print:mt-0">
             <span class="lang-en">
-              I also have a lot of experience building websites using React.JS and its lighter alternative, Preact. I
-              like its data-driven declarative approach which makes the UI behaviour more testable and predictable at
-              runtime.
+              I have been writing web services and servers with the Go programming language for over two years. I am
+              skilled in creating efficient and reliable web applications that meet the needs of my clients.
             </span>
 
             <span class="lang-ro">
-              De asemenea am şi experienţă creând website-uri folosind React.JS şi alternativa sa mai usoară, Preact.
-              Îmi place abordarea declarativă pe date a librariei, mai ales folosind React Hooks.
+              În calitate de dezvoltator experimentat, am scris servicii și servere web cu limbajul de programare Go
+              timp de peste doi ani. Sunt priceput în crearea de aplicații web eficiente și fiabile care răspund
+              nevoilor clienților mei.
             </span>
           </p>
         </div>
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
-            <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-            OpenGL
-            <span class="italic opacity-70 lang-en">- 1 years experience</span>
-            <span class="italic opacity-70 lang-ro">- 1 ani de experienţă</span>
+          <h3>
+            <span class="lang-en">Other Technologies</span>
+            <span class="lang-ro">Alte cunoștințe</span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:mt-0">
-            <span class="lang-en">
-              I am already quite familiar with OpenGL and the GPU rendering pipeline and have written a few projects
-              in the past that make use of OpenGL via WebGL, wrapper libraries or by calling <code>gl</code> functions
-              directly.
-            </span>
+          <div class="flex gap-8 pl-4 print:ml-3 print:mt-0">
+            <ul class="list-disc list-inside">
+              <li>Webpack, Vite, ESBuild</li>
+              <li>CMake & Meson</li>
+              <li>Dart & Flutter</li>
+            </ul>
 
-            <span class="lang-ro">
-              Sunt deja familiar cu OpenGL şi pipeline-ul de redare a imaginilor folosind GPU-ul. Am realizat câteva
-              proiecte care utilizează OpenGL ori prin WebGL, ori indirect folosind librării, ori în mod direct prin
-              apelarea funcţiilor native.
-            </span>
-          </p>
+            <ul class="list-disc list-inside">
+              <li>Python (NumPy, Matplotlib)</li>
+              <li>Rust</li>
+              <li>Zig</li>
+            </ul>
+
+            <ul class="list-disc list-inside">
+              <li>Scala</li>
+              <li>Haskell</li>
+              <li>OCaml</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Education Seciton (PDF only) -->
-    <section class="screen-section section-left print:flex">
+    <!-- Education Section -->
+    <section new-page>
       <div class="screen-subsection">
-        <h2 class="heading">
+        <h2>
           <span class="lang-en">Education</span>
           <span class="lang-ro">Educaţie</span>
         </h2>
 
         <hr class="hidden mb-3 print:block" />
 
-        <p class="paragraph lang-en">
+        <p class="lang-en">
           I am currently pursuing my degree in <em>Computer Science</em> at the <em>University of Eindhoven</em> in the
           &#x1F1F3;&#x1F1F1; Netherlands. This university is known for its excellent academic standards and cutting-edge
           research facilities in the field of Computer Science. I am thoroughly enjoying my studies and am eager to
@@ -268,9 +268,9 @@
     </section>
 
     <!-- Personal Projects Section -->
-    <section class="screen-section section-left" style="page-break-after: always;">
+    <section>
       <div class="screen-subsection">
-        <h2 class="heading">
+        <h2>
           <span class="lang-en">Personal Projects</span>
           <span class="lang-ro">Proiecte Personale</span>
         </h2>
@@ -278,20 +278,12 @@
         <hr class="hidden mb-3 print:block" />
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
+          <h3>
             Silk Script
-
-            <span class="hidden print:inline">- C, C++</span>
-
-            <a class="link print:hidden" href="https://github.com/mihnea-s/silk-script" target="_blank"
-              rel="noopener noreferrer">
-              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-              <span class="lang-en">Source Code</span>
-              <span class="lang-ro">Codul Sursă</span>
-            </a>
+            <span class="text-gray-400">&mdash; C, C++</span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:pt-0">
+          <p class="print:ml-3 print:pt-0">
             <span class="lang-en">
               Scripting language I made, learned about scanning, parsing, compilation and made my own bytecode virtual
               machine in the process. The project uses modern C++ idioms such as <code>std::variant</code> and template
@@ -307,35 +299,22 @@
             <br />
             <br />
 
-            <span class="print:hidden">
-              <span class="lang-en">Technologies used:</span>
-              <span class="lang-ro">Tehnologii utilizate:</span>
-
-              <span class="chip">C++</span>
-              <span class="chip">C</span>
-            </span>
-
-            <span class="hidden print:inline">
-              Repo: <a href-print="github.com/mihnea-s/silk-script" class="link"></a>
-            </span>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s/silk-script">
+              <span class="print:hidden">Source code on</span>
+              <span class="injected-svg" src="/static/icon-github.svg"></span>
+              <span class="print:hidden">GitHub</span>
+              <span class="hidden print:inline">github.com/mihnea-s/silk-script</span>
+            </a>
           </p>
         </div>
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
+          <h3>
             Zig GameBoy Emulator
-
-            <span class="hidden print:inline">- Zig, GLFW, OpenGL</span>
-
-            <a class="link print:hidden" href="https://github.com/mihnea-s/zig_gb_emu" target="_blank"
-              rel="noopener noreferrer">
-              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-              <span class="lang-en">Source Code</span>
-              <span class="lang-ro">Codul Sursă</span>
-            </a>
+            <span class="text-gray-400">&mdash; Zig, OpenGL</span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:pt-0">
+          <p class="print:ml-3 print:pt-0">
             <span class="lang-en">
               A low-level emulator for the DMG GameBoy console written in the Zig programming language. It emulates the
               CPU and GPU accurately by keeping track of instructions cycles and synchronising them with OpenGL's
@@ -350,36 +329,22 @@
             <br />
             <br />
 
-            <span class="print:hidden">
-              <span class="lang-en">Technologies used:</span>
-              <span class="lang-ro">Tehnologii utilizate:</span>
-
-              <span class="chip">Zig</span>
-              <span class="chip">GLFW</span>
-              <span class="chip">OpenGL</span>
-            </span>
-
-            <span class="hidden print:inline">
-              Repo: <a href-print="github.com/mihnea-s/zig_gb_emu" class="link"></a>
-            </span>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s/zig_gb_emu">
+              <span class="print:hidden">Source code on</span>
+              <span class="injected-svg" src="/static/icon-github.svg"></span>
+              <span class="print:hidden">GitHub</span>
+              <span class="hidden print:inline">github.com/mihnea-s/zig_gb_emu</span>
+            </a>
           </p>
         </div>
 
         <div class="flex flex-col gap-6 print:gap-2">
-          <h3 class="subheading">
+          <h3>
             Polyeme
-
-            <span class="hidden print:inline">- TypeScript, Haskell</span>
-
-            <a class="link print:hidden" href="https://github.com/mihnea-s/polyeme" target="_blank"
-              rel="noopener noreferrer">
-              <img src="/static/icon-code.svg" alt="Source Code" class="icon mx-1" />
-              <span class="lang-en">Source Code</span>
-              <span class="lang-ro">Codul Sursă</span>
-            </a>
+            <span class="text-gray-400">&mdash; TypeScript, Haskell</span>
           </h3>
 
-          <p class="paragraph print:ml-3 print:pt-0">
+          <p class="print:ml-3 print:pt-0">
             <span class="lang-en">
               I wanted to better understand the strong and weak points of different programming languages, so I set
               myself the goal of writing a simple Scheme inspired scripting language in each new language that I want
@@ -395,17 +360,12 @@
             <br />
             <br />
 
-            <span class="print:hidden">
-              <span class="lang-en">Technologies used:</span>
-              <span class="lang-ro">Tehnologii utilizate:</span>
-
-              <span class="chip">TypeScript</span>
-              <span class="chip">Haskell</span>
-            </span>
-
-            <span class="hidden print:inline">
-              Repo: <a href-print="github.com/mihnea-s/polyeme" class="link"></a>
-            </span>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/mihnea-s/polyeme">
+              <span class="print:hidden">Source code on</span>
+              <span class="injected-svg" src="/static/icon-github.svg"></span>
+              <span class="print:hidden">GitHub</span>
+              <span class="hidden print:inline">github.com/mihnea-s/polyeme</span>
+            </a>
           </p>
         </div>
       </div>
