@@ -192,6 +192,14 @@
   }
 
   @media print {
+    section:nth-child(-n + 2) {
+      @apply lg:pl-0;
+    }
+
+    section:nth-last-child(-n + 2) {
+      @apply lg:pr-0;
+    }
+
     section[new-page] {
       padding-top: var(--page-margin);
       @apply break-before-page;
